@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+    const path = window.location.pathname.split("/");
+    const id = path[path.length - 1];
+
+    // fallback nếu không có id
+    const finalId = id || "TN141";
+
+    window.location.href =
+      "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec?id=" + finalId;
+  </script>
+</head>
+<body>
+  Đang chuyển hướng...
+</body>
+</html>
