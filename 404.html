@@ -2,26 +2,12 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <style>
-    body { margin: 0; }
-    iframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
-    }
-  </style>
+  <script>
+    var path = window.location.pathname;
+
+    // redirect về index + giữ path
+    window.location.href = "/qr-app/index.html?path=" + path;
+  </script>
 </head>
-<body>
-
-<script>
-  const path = window.location.pathname.split("/");
-  const id = path[path.length - 1];
-  const finalId = id || "TN141";
-
-  const url = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec?id=" + finalId;
-
-  document.write('<iframe src="' + url + '"></iframe>');
-</script>
-
-</body>
+<body></body>
 </html>
