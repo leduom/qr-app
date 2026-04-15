@@ -2,14 +2,6 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <style>
-    body { margin: 0; }
-    iframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
-    }
-  </style>
 </head>
 <body>
 
@@ -21,9 +13,9 @@
     id = "TN141";
   }
 
-  const url = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec?id=" + id;
+  const baseUrl = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec";
 
-  document.write('<iframe src="' + url + '"></iframe>');
+  window.location.replace(baseUrl + "?id=" + id);
 </script>
 
 </body>
