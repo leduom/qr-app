@@ -2,25 +2,35 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <title>Redirecting...</title>
   <style>
-    body { margin: 0; }
-    iframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
+    body {
+      margin: 0;
+      font-family: Arial;
+      text-align: center;
+      padding-top: 40px;
     }
   </style>
 </head>
 <body>
 
+<h3>Đang tải dữ liệu...</h3>
+
 <script>
+  // Lấy ID từ URL
   const path = window.location.pathname.split("/");
-  const id = path[path.length - 1];
-  const finalId = id || "TN141";
+  let id = path[path.length - 1];
 
-  const url = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec?id=" + finalId;
+  // fallback nếu không có ID
+  if (!id || id === "") {
+    id = "TN141";
+  }
 
-  document.write('<iframe src="' + url + '"></iframe>');
+  // Link GAS
+  const baseUrl = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec";
+
+  // Redirect
+  window.location.replace(baseUrl + "?id=" + id);
 </script>
 
 </body>
