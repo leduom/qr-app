@@ -2,39 +2,36 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>IT Incident Management</title>
+  <title>Redirecting...</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      text-align: center;
+      padding-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Đang tải dữ liệu...</h2>
 
-  <script>
-    // Lấy path từ URL hoặc từ 404 redirect
-    const params = new URLSearchParams(window.location.search);
-    let path = params.get("path") || window.location.pathname;
+<h3>Đang tải dữ liệu...</h3>
 
-    // Lấy ID cuối
-    let id = path.split("/").pop();
+<script>
+  // Lấy ID từ URL (ví dụ /TN141)
+  const path = window.location.pathname.split("/");
+  let id = path[path.length - 1];
 
-    if (!id || id === "") {
-      id = "TN141"; // mặc định
-    }
+  // Nếu không có ID thì dùng mặc định
+  if (!id || id === "") {
+    id = "TN141";
+  }
 
-    // Link GAS của bạn
-    const gasUrl = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec?id=" + id;
+  // Link GAS của bạn
+  const baseUrl = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec";
 
-    // Redirect sang GAS (cách đơn giản nhất – đảm bảo chạy)
-    window.location.href = gasUrl;
+  // Chuyển hướng sang GAS
+  window.location.replace(baseUrl + "?id=" + id);
+</script>
 
-    // Nếu bạn muốn fetch (ẩn link) thì dùng đoạn này (tuỳ chọn)
-    /*
-    fetch(gasUrl)
-      .then(res => res.text())
-      .then(html => {
-        document.open();
-        document.write(html);
-        document.close();
-      });
-    */
-  </script>
 </body>
 </html>
