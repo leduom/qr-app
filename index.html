@@ -2,35 +2,25 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      text-align: center;
-      padding-top: 40px;
+    body { margin: 0; }
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
     }
   </style>
 </head>
 <body>
 
-<h3>Đang tải dữ liệu...</h3>
-
 <script>
-  // Lấy ID từ URL (ví dụ /TN141)
   const path = window.location.pathname.split("/");
-  let id = path[path.length - 1];
+  const id = path[path.length - 1];
+  const finalId = id || "TN141";
 
-  // Nếu không có ID thì dùng mặc định
-  if (!id || id === "") {
-    id = "TN141";
-  }
+  const url = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec?id=" + finalId;
 
-  // Link GAS của bạn
-  const baseUrl = "https://script.google.com/macros/s/AKfycbzQYny_YiyDS3Np0qgA6QqPO9TW6m8hEEP1VvoVH7Ey2WV2UcSUDeF8PuK_kJQU1f9v/exec";
-
-  // Chuyển hướng sang GAS
-  window.location.replace(baseUrl + "?id=" + id);
+  document.write('<iframe src="' + url + '"></iframe>');
 </script>
 
 </body>
